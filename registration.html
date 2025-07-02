@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kintsugi Art Workshop Registration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif; /* Primary font for body text */
+      background: #f9f6f1 url('Kintsugi arte giapponese (1).jpg') no-repeat center center fixed; /* Placeholder for background image */
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      color: #333;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.7); /* Slightly transparent white for readability over background */
+      max-width: 550px; /* Increased width for more content */
+      width: 90%;
+      margin: 40px 0;
+      border-radius: 10px;
+      padding: 30px 40px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-family: 'Merriweather', serif; /* Distinct font for headings */
+      color: #b27a00;
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 2.2em; /* Slightly larger heading */
+    }
+    p.description {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+    }
+    input[type="file"] {
+      padding: 8px 12px;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #b27a00;
+      outline: none;
+    }
+    button {
+      margin-top: 30px;
+      background-color: #b27a00;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 14px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #a36d00;
+    }
+    .info-section {
+      background: #fff8e1;
+      border-left: 5px solid #b27a00;
+      padding: 15px 20px;
+      margin-top: 20px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: #6b5300;
+    }
+    .venue {
+      font-weight: 700;
+      margin-top: 10px;
+    }
+    a.directions {
+      color: #b27a00;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a.directions:hover {
+      text-decoration: underline;
+    }
+
+    /* Styles for radio button groups and select options */
+    .option-group fieldset {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .option-group legend {
+      font-weight: 600;
+      color: #333;
+      padding: 0 5px;
+      margin-bottom: 10px;
+    }
+    .option-group div {
+      margin-bottom: 10px;
+    }
+    .option-group input[type="radio"] {
+      width: auto;
+      margin-right: 8px;
+    }
+    .option-group label {
+      display: inline-block;
+      margin-top: 0;
+      margin-bottom: 0;
+      font-weight: normal;
+      cursor: pointer;
+    }
+    .option-group .radio-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    /* Style for checkbox group */
+    .terms-conditions, .waiver-clause {
+      margin-top: 25px;
+      background: #f0f8ff;
+      border: 1px solid #cceeff;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .terms-conditions p, .waiver-clause p {
+      font-size: 0.9rem;
+      color: #336699;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+    .terms-conditions input[type="checkbox"], .waiver-clause input[type="checkbox"] {
+      width: auto;
+      margin-right: 10px;
+    }
+    .terms-conditions label, .waiver-clause label {
+      display: inline;
+      font-weight: normal;
+      cursor: pointer;
+      margin-top: 0;
+    }
+
+    /* Participant Names Section */
+    #groupNamesSection {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px dashed #b27a00;
+      border-radius: 8px;
+      background-color: #fffaf0;
+    }
+    #groupNamesSection label {
+      font-weight: normal; /* Make sub-labels lighter */
+      margin-top: 10px; /* Adjust margin for name labels */
+    }
+    #groupNamesSection input {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Kintsugi Art Workshop</h1>
+    <p class="description">Discover the Beauty of Imperfection — Learn the Japanese art of mending ceramics with gold.</p>
+
+    <form id="registrationForm">
+      <label for="firstName">First Name *</label>
+      <input type="text" id="firstName" name="firstName" placeholder="Your first name" required />
+
+      <label for="middleName">Middle Name</label>
+      <input type="text" id="middleName" name="middleName" placeholder="Your middle name (optional)" />
+
+      <label for="lastName">Last Name *</label>
+      <input type="text" id="lastName" name="lastName" placeholder="Your last name" required />
+
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" placeholder="example@domain.com" required />
+
+      <label for="password">Create Password *</label>
+      <input type="password" id="password" name="password" placeholder="Choose a strong password" required minlength="8" />
+
+      <label for="phone">Phone Number *</label>
+      <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required pattern="[+0-9\s]{7,15}" />
+
+      <label for="language">Preferred Language *</label>
+      <select id="language" name="language" required>
+        <option value="" disabled selected>Select a language</option>
+        <option value="English">English</option>
+        <option value="Hindi">Hindi</option>
+      </select>
+
+      <label for="ageGroup">Age Group *</label>
+      <select id="ageGroup" name="ageGroup" required>
+        <option value="" disabled selected>Select your age group</option>
+        <option value="Under 12">Under 12</option>
+        <option value="12-18">12-18</option>
+        <option value="19-35">19-35</option>
+        <option value="36-60">36-60</option>
+        <option value="60+">60+</option>
+      </select>
+
+      <label for="workshopDate">Preferred Workshop Date *</label>
+      <input type="date" id="workshopDate" name="workshopDate" required
+             min="2025-06-19" max="2025-06-29" />
+
+      <label for="numPeople">Number of People Registering *</label>
+      <select id="numPeople" name="numPeople" required>
+        <option value="" disabled selected>Select group size</option>
+        <option value="1">Solo (1 Person)</option>
+        <option value="2">Group of 2</option>
+        <option value="3">Group of 3</option>
+      </select>
+
+      <div id="groupNamesSection" style="display:none;">
+        <label>Full Names of Additional Participants:</label>
+        <div id="additionalParticipants">
+          </div>
+      </div>
+
+      <div class="option-group">
+        <fieldset>
+          <legend>Select Your Payment Option *</legend>
+          <div class="radio-item">
+            <input type="radio" id="payment400" name="paymentOption" value="400" required />
+            <label for="payment400">₹400 (Basic Workshop)</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="payment600" name="paymentOption" value="600" />
+            <label for="payment600">₹600 (Standard Workshop + Basic Kit)</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="payment800" name="paymentOption" value="800" />
+            <label for="payment800">₹800 (Premium Workshop + Deluxe Kit)</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <label for="duration">Workshop Duration *</label>
+      <select id="duration" name="duration" required>
+        <option value="" disabled selected>Select duration</option>
+        <option value="1">1 Hour</option>
+        <option value="2">2 Hours</option>
+        <option value="3">3 Hours</option>
+        <option value="4">4 Hours</option>
+      </select>
+
+      <label for="workshopTime">Preferred Workshop Start Time *</label>
+      <input type="time" id="workshopTime" name="workshopTime" required
+             min="10:00" max="18:00" step="1800" />
+
+      <label for="skillLevel">Your Skill Level *</label>
+      <select id="skillLevel" name="skillLevel" required>
+        <option value="" disabled selected>Select your skill level</option>
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="expert">Expert</option>
+      </select>
+
+      <label for="paymentScreenshot">Upload Payment Screenshot *</label>
+      <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*" required />
+      <small style="display: block; margin-top: -15px; margin-bottom: 20px; color: #777;">Please upload a clear screenshot of your payment confirmation.</small>
+
+      <div class="option-group">
+        <fieldset>
+          <legend>Workshop Tools Option *</legend>
+          <div class="radio-item">
+            <input type="radio" id="toolsProvided" name="toolsOption" value="provided" required />
+            <label for="toolsProvided">Please provide me with the necessary tools for the workshop.</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="toolsBring" name="toolsOption" value="bring_own" />
+            <label for="toolsBring">I will bring my own Kintsugi tools for the workshop.</label>
+          </div>
+          <div class="radio-item">
+            <input type="radio" id="toolsTakeHome" name="toolsOption" value="take_home" />
+            <label for="toolsTakeHome">I would like to take out (purchase) a Kintsugi tool kit after the workshop.</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <label for="howHear">How Did You Hear About Us? *</label>
+      <select id="howHear" name="howHear" required>
+        <option value="" disabled selected>Select an option</option>
+        <option value="social_media">Social Media (Facebook, Instagram, etc.)</option>
+        <option value="word_of_mouth">Friend/Word of Mouth</option>
+        <option value="online_search">Online Search (Google, Bing, etc.)</option>
+        <option value="flyer_poster">Flyer/Poster</option>
+        <option value="email_newsletter">Email Newsletter</option>
+        <option value="event_listing">Event Listing Website</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="comments">Any Questions or Notes?</label>
+      <textarea id="comments" name="comments" rows="3" placeholder="Let us know if you have any special needs or questions..."></textarea>
+
+      ---
+      <h2>Terms and Conditions</h2>
+      <div class="terms-conditions">
+        <p>Please note: Your money will be refunded only if you cancel your registration at least one day before the scheduled workshop date. No refunds will be issued for cancellations made less than 24 hours prior to the workshop.</p>
+        <input type="checkbox" id="agreeTerms" name="agreeTerms" required />
+        <label for="agreeTerms">I agree to the refund policy terms and conditions stated above *</label>
+      </div>
+
+      ---
+      <h2>Waiver and Release Clause</h2>
+      <div class="waiver-clause">
+        <p>By participating in the Kintsugi Art Workshop, I acknowledge that I am voluntarily engaging in an activity that may involve the use of sharp tools, adhesives, and fragile materials. I understand that there are inherent risks associated with art workshops, including but not limited to minor cuts, skin irritation from materials, or damage to personal property.</p>
+        <p>I hereby release Makobrew World Coffee Bar and the workshop organizers, instructors, and staff from any and all liability, claims, demands, actions, or causes of action whatsoever arising out of or related to any loss, damage, or injury, including death, that may be sustained by me, or any property belonging to me, while participating in the workshop, regardless of whether such loss, damage, or injury is caused by the negligence of the releasees, or otherwise. I agree to indemnify and hold harmless the releasees for any and all such claims.</p>
+        <input type="checkbox" id="agreeWaiver" name="agreeWaiver" required />
+        <label for="agreeWaiver">I have read, understood, and agree to the above Waiver and Release Clause *</label>
+      </div>
+      ---
+
+      <button type="submit">Register Now</button>
+    </form>
+
+    <div class="info-section">
+      <strong>Event Details:</strong><br />
+      Venue: <span class="venue">Makobrew World Coffee Bar</span><br />
+      Address: Sri Peddamma Thalli Temple, Rd Number 44, CBI Colony, Jubilee Hills, Hyderabad, Telangana 500033, India<br />
+      <a class="directions" href="https://maps.app.goo.gl/YourActualGoogleMapsLinkHere" target="_blank" rel="noopener">Get Directions</a>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const numPeopleSelect = document.getElementById('numPeople');
+      const groupNamesSection = document.getElementById('groupNamesSection');
+      const additionalParticipantsDiv = document.getElementById('additionalParticipants');
+
+      function updateParticipantFields() {
+        const numSelected = parseInt(numPeopleSelect.value);
+        additionalParticipantsDiv.innerHTML = ''; // Clear previous fields
+
+        if (numSelected > 1) {
+          groupNamesSection.style.display = 'block';
+          for (let i = 1; i < numSelected; i++) {
+            const label = document.createElement('label');
+            label.textContent = `Participant ${i + 1} Full Name *`;
+            label.setAttribute('for', `participantName${i + 1}`);
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = `participantName${i + 1}`;
+            input.name = `participantName${i + 1}`;
+            input.placeholder = `Full name of participant ${i + 1}`;
+            input.required = true;
+
+            additionalParticipantsDiv.appendChild(label);
+            additionalParticipantsDiv.appendChild(input);
+          }
+        } else {
+          groupNamesSection.style.display = 'none';
+        }
+      }
+
+      // Initial check and event listener
+      updateParticipantFields(); // Call on load in case a value is pre-selected
+      numPeopleSelect.addEventListener('change', updateParticipantFields);
+
+      document.getElementById('registrationForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        // In a real application, you would collect all form data and send it to a server.
+        // For file uploads, you'd typically use FormData and Fetch API or XMLHttpRequest.
+
+        alert('Thank you for registering for the Kintsugi Art Workshop! We will contact you soon to confirm your slot and payment.');
+        this.reset();
+        // Reset the dynamically added fields as well
+        updateParticipantFields();
+      });
+    });
+  </script>
+</body>
+</html>
